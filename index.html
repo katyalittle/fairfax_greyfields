@@ -10,6 +10,14 @@
   <body>
     <p>
       hello, world
+
+      Because I have the map itself (i.e. I've identified the potential greyfield parcels and they are in separate layers) and I'm working on the Map Viewer later, here's a guide to the layer names. In the map viewer, you can click them to hide or show different layers:
+- parcels_ONLYsewer = Non-residential parcels with sewer available, but not connected; they have no data for water or gas connection. They have an impervious surface cover of greater than 15%
+- parcels_ONLYwatersewer =  Non-residential parcels with water and sewer available, but not connected; they have no data for gas connection. They have an impervious surface cover of greater than 15%
+- parcels_ONLYwater =  Non-residential parcels with water available, but not connected; they have no data for sewer or gas connection. They have an impervious surface cover of greater than 15%
+- parcels_ALLavailable = Non-residential parcels with water, sewer, and gas available, but not connected. They have impervious surface area of greater than 15%
+- parcels_impervious = Non-residential parcels with an impervious surface cover of greater than 15%
+- parcels = Non-residential parcels
     </p>
     <iframe src="https://bmc15.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=256bc7823ada4bdab8e4bbbdb33d24ba" width="400" height="600" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
   </body>
