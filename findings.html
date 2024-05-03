@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <title>Fairfax Greyfields</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="header">
+          <div class="title">
+            <h1>FAIRFAX GREYFIELDS</h1>
+          </div>
+
+          <nav class="navbar">
+            <p id="header-about"><a href="index.html">ABOUT</a></p>
+            <p id="header-process"><a href="process.html">PROCESS</a></p>
+            <p id="header-analysis">
+              <a href="exploration.html">EXPLORATION</a>
+            </p>
+            <p id="header-reflections"><a href="reflections.html">REFLECTIONS</a></p>
+          </nav>
+        </div>
+
+        <div class="about-text">
+          <h2>PROJECT FINDINGS: POTENTIAL GREYFIELDS</h2>
+          <p>
+            Below are the primary findings of this project: a map of potential
+            greyfield parcels in Fairfax, Virginia best suited for redevelopment
+            due to their proximity to block groups that could benefit the most
+            from it. There was a fairly wide spread of types of properties that
+            were ultimately identified as the best candidates for redevelopment,
+            but the most common type of property identified was neighborhood
+            retail.
+          </p>
+          <p>
+            The base map with every layer used for analysis is available on
+            ArcGIS online and can be accessed for viewing and download
+            <a href="https://arcg.is/0y55na">here</a>. A data dictionary
+            defining variables used in the analysis can be downloaded
+            <a href="greyfields_datadictionary.xlsx">here</a>. For a more
+            in-depth, step-by-step description of the analysis process that lead
+            to these findings, go to the <a href="process.html">Process</a> page
+            of this website.
+          </p>
+          <p>Some notes on the map's organization and how to navigate it:</p>
+          <ul>
+            <li>
+              You can click on specific parcels to see their attributes as well
+              as hide and show different layers by clicking them in the legend.
+            </li>
+            <li>
+              The parcels are organized into layers by combinations of
+              availability and null values in their the three utility categories
+              I used to identify underuse--sewer, water, and gas. Layer titles
+              detail which utilities were available and which had no data
+              available for the parcel's connection (indicated by a null value):
+              for example, the "Only water available" layer contains parcels for
+              which water was listed as available but not connected, while gas
+              and sewer contained null values signifying a lack of data.
+              <ul>
+                <li id="sublist">
+                  Only four combinations of utility connection-no data values
+                  were present in the parcel data.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <iframe
+            src="https://bmc15.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=d4a1e87299764f648484377056015bd8"
+            width="400"
+            height="600"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen
+            >iFrames are not supported on this page.</iframe
+          >
+        </div>
+      </div>
+      <footer id="footer"></footer>
+    </div>
+  </body>
+  <footer>
+    <p>Katya Little (2024)</p>
+  </footer>
+</html>

@@ -1,0 +1,133 @@
+.title {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+h1 {
+  margin-block-end: 0px;
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.navbar p {
+  margin-block: 0px;
+}
+
+h2 {
+  width: fit-content;
+  margin-inline: auto;
+  font-size: larger;
+  margin-top: 1.5em;
+}
+
+.about-text p {
+  text-align: justify;
+  text-justify: inter-word;
+  width: 70svw;
+  margin-inline: auto;
+}
+
+.about-text li {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-inline: 2em;
+  width: 70svw;
+  margin-inline: auto;
+}
+
+footer {
+  margin-inline: auto;
+  width: fit-content;
+  font-size: small;
+  bottom: 0;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+a:link {
+  color: rgb(93, 105, 145);
+}
+
+a:hover {
+  color: rgb(143, 143, 143);
+}
+
+a:active {
+  color: rgb(75, 75, 75);
+}
+
+iframe {
+  display: block;
+  height: 40svw;
+  width: 70svw;
+  margin-inline: auto;
+}
+
+h3 {
+  width: fit-content;
+  margin-inline: auto;
+  font-size: large;
+  margin-block: auto;
+}
+
+.about-text-step {
+  background-color: rgb(219, 219, 219);
+  margin-block: 5px;
+  width: calc(70svw + 2em);
+  padding-block: 5px;
+  margin-inline: auto;
+  margin-block: 1em;
+  padding-block: 0.8rem;
+}
+
+.about-text-step p {
+  margin-top: 0;
+}
+
+.about-text-step li {
+  width: 65svw;
+  text-align: justify;
+}
+
+.about-text li {
+  width: 65svw;
+  text-align: justify;
+}
+
+#sublist {
+  width: 100%;
+}
+
+#footnote1 {
+  width: fit-content;
+  width: calc(70svw);
+  margin-inline: auto;
+  margin-block: auto;
+  font-size: small;
+}
+
+#footnote2 {
+  width: fit-content;
+  width: calc(70svw);
+  margin-inline: auto;
+  margin-block: auto;
+  font-size: small;
+}

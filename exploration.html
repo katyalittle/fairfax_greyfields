@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <title>Fairfax Greyfields</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="header">
+          <div class="title">
+            <h1>FAIRFAX GREYFIELDS</h1>
+          </div>
+
+          <nav class="navbar">
+            <p id="header-about"><a href="index.html">ABOUT</a></p>
+            <p id="header-process"><a href="process.html">PROCESS</a></p>
+            <p id="header-findings"><a href="findings.html">FINDINGS</a></p>
+            <p id="header-reflections"><a href="reflections.html">REFLECTIONS</a></p>
+          </nav>
+        </div>
+
+        <div class="about-text">
+          <h2>ANALYSIS OF GREYFIELD DISTRIBUTION</h2>
+          <p>
+            Because greyfields are a product of context, I decided to explore
+            said context after finishing the main analysis. I did this
+            primarily using data from the American Community Survey (tables cited in the data dictionary
+            found on the <a href="process.html">Process</a> page of this
+            website), which I joined to the Fairfax block group feature layer.
+            The map of that data is displayed below.
+          </p>
+          <p>
+            For those interested in independently exploring the data, some notes
+            on the map's organization and how to navigate it: 
+            <ul>
+              <li>You can click on specific map features in order to display a pop-up listing the data the feature contains.</li>
+              <ul>
+                <li>Due to the amount of data utilized over the course of the project, many features have more fields than are defined in the data dictionary. All fields that were used in the analysis process are listed with sources in the data dictionary on the Process page; fields that are not listed in the data dictionary were not used in the analysis.</li>
+                <li>Because the data from the project was primarily taken from the Fairfax County Open Data Portal or the American Community Survey, those curious about any fields not defined can locate them in the sources cited in the data dictionary. All fields not found in the data dictionary or the sources attached--for example, shape length and width measures--were generated in the analysis process.</li>
+              </ul>
+              <li>View map legends and toggle the visibility of different layers in the "Map Layers" tab.</li>
+              <li>Parcels selected in step 3 of the primary analysis process are overlaid on top of block group data. They are labeled by which utilities were found to be available, with no data available for the parcel's other utility values--for example, the parcel layer labeled "Water available" contains all parcels for which water was listed as available, but gas and sewer listed as null.</li>
+              <li>Because ArcGIS Online cannot translate decimal points into percentages, refer to layer labels on whether or not to interpet levels of data as percentages.</li>
+              <li>All block group data has been classified using a natural breaks method to recognize natural groupings in the data.</li>
+            </ul>
+            </li>
+          <iframe
+            src="https://bmc15.maps.arcgis.com/apps/instant/atlas/index.html?appid=678dcb6d953442d5aa7a1cbcc2087540"
+            width="400"
+            height="600"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen
+            >iFrames are not supported on this page.</iframe
+          >
+          <p>Potential greyfield parcels identified at the end of step 3 were consistently found to be located in or nearby block groups with the highest shares of residents with a high school education or less, the lowest median incomes, and the highest shares of residents on Medicaid or other means-tested health insurance programs in Fairfax.</p>
+          <iframe
+            src="https://bmc15.maps.arcgis.com/apps/instant/atlas/index.html?appid=051a1947ac904cde8dc8c8ffae914aa8"
+            width="400"
+            height="600"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen
+            >iFrames are not supported on this page.</iframe
+          >
+          <p>These potential greyfield parcels were also concentrated in or nearby block groups that generally had higher shares of Hispanic or Latino residents and lower shares of non-Hispanic or Latino white residents. However, potential greyfield parcel locations were not correlated in any particular way with the locations of block groups that generally had higher shares of non-Hispanic or Latino Black residents.</p>
+          <iframe
+            src="https://bmc15.maps.arcgis.com/apps/instant/atlas/index.html?appid=a8271c8b735940288cd60366708cbdd1"
+            width="400"
+            height="600"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen
+            >iFrames are not supported on this page.</iframe
+          >
+          <p>Transportation and work was a different story. In the vast majority of Fairfax, driving is the mode of transportation to work, with very little correlation with other demographic or socioeconomic variables. Parcels were distributed in and nearby block groups with a wide variety of shares in their respective populations that primarily walked, biked, or took the bus to work. However, a significant part of Fairfax also works from home. It is interesting to note that most potential greyfield parcels <i>were</i> are located in areas or corridors of block groups that have very low shares of residents that work from home.</p>
+          <p>The presence of indicators of socioeconomic disadvantage, high shares of Hispanic or Latino residents, low shares of non-Hispanic or Latino white residents, and the presence of a commute (as opposed to a high concentration of individuals that worked from home) tended to be found in the same block groups. These block groups were also concentrated along highways, a feature that significantly impacts the type of zoning found in the surrounding area. The particular type of urban sprawl--strip development--that is produced by the zoning of these areas likely has a great deal to do with the presence of these potential greyfield parcels.</p>
+        </div>
+      </div>
+      <footer id="footer"></footer>
+    </div>
+  </body>
+  <footer>
+    <p>Katya Little (2024)</p>
+  </footer>
+</html>

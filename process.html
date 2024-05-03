@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <title>Fairfax Greyfields</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="header">
+          <div class="title">
+            <h1>FAIRFAX GREYFIELDS</h1>
+          </div>
+
+          <nav class="navbar">
+            <p id="header-about"><a href="index.html">ABOUT</a></p>
+            <p id="header-findings"><a href="findings.html">FINDINGS</a></p>
+            <p id="header-analysis">
+              <a href="exploration.html">EXPLORATION</a>
+            </p>
+            <p id="header-reflections"><a href="reflections.html">REFLECTIONS</a></p>
+          </nav>
+        </div>
+
+        <div class="about-text">
+          <h2>PROCESS OF IDENTIFYING POTENTIAL GREYFIELDS</h2>
+
+          <div class="about-text-overview">
+            <p>
+              I began the process of analysis with a two-part research question:
+              <i>
+                are there any greyfield properties in Fairfax, VA, and where
+                are they located?
+              </i>
+              Parcels--the smallest unit of real estate in Fairfax for
+              which geospatial data is publicly available--were chosen as the
+              units by which I would analyze property in the county and city. This page
+              describes the following:
+            </p>
+            <ol>
+              <li>
+                the <b>criteria</b> by which I defined a potential greyfield
+              </li>
+              <li>
+                the <b>operations</b> I used in ArcGIS to filter for properties
+                using those criteria,
+              </li>
+              <li>and the <b>accuracy</b> of the process.</li>
+            </ol>
+            <p>
+              The base map with every layer used for analysis is available on ArcGIS online and can
+              be accessed for viewing and download
+              <a href="https://arcg.is/0y55na">here</a>. A data dictionary
+              defining variables used in the analysis and sources can be downloaded
+              <a href="greyfields_datadictionary.xlsx">here</a>.
+            </p>
+            <p>
+              Due to a combination of privacy concerns, logistics issues, and the murkiness of terms like "abandonment" and "underuse", there is very little data available on greyfield properties and other underutilized land. Before starting the process, I defined three primary criteria by which I would identify a parcel as a potential greyfield for which there <i>is</i> data publicly available:
+            </p>
+            <ol>
+              <li><b>non-residential</b> zoning status of the parcel, to ensure housing was not included in the analysis;</li>
+              <li><b>greater than 15% impermeable surface cover</b> (the EPA threshold for damage to bodies of water in the immediate area</i
+                ><sup><a href="#footnote1" id="ref1" title="Jump to footnote">[1]</a></sup
+                >) over the area of the parcel;</li>
+              <li>and <b>utilities</b> (gas, sewer, and water) noted as <b>available but not connected or null</b> (the latter signifying a lack of available data) in some combination, potentially indicating underuse or active abandonment of the property.</li>
+            </ol>
+            <p>
+              Some notes on the maps below and how to navigate them:
+              <ul>
+                <li>You can click on specific map features in order to display a pop-up listing the data the feature contains.</li>
+                <ul>
+                  <li>Due to the amount of data utilized over the course of the project, many features have more fields than are defined in the data dictionary. All fields that were used in the analysis process are listed with sources in the data dictionary above; fields that are not listed in the data dictionary were not used in the analysis.</li>
+                  <li>Because the data from the project was primarily taken from the Fairfax County Open Data Portal or the American Community Survey, those curious about any fields not defined can locate them in the sources cited in the data dictionary. All fields not found in the data dictionary or the sources attached--for example, shape length and width measures--were generated in the analysis process.</li>
+                </ul>
+                <li>View map legends and toggle the visibility of different layers by clicking them in the legend.</li>
+              </ul>
+            </p>
+          </div>
+
+          <div class="about-text-step">
+            <p>
+              The <b>first step</b> of the identification process consisted of
+              identifying all non-residential parcels. This was accomplished by importing the "Parcels" shapefile from the Fairfax County Open Geospatial Data portal and creating a new feature from a selection of all non-residential parcels.
+              </ol>
+            </p>
+            <p>All non-residential parcels identified in this step are mapped below.</p>
+            <iframe
+              src="https://bmc15.maps.arcgis.com/apps/instant/basic/index.html?appid=f27617bbb63a45e59dcba1fb604adb6d"
+              width="400"
+              height="600"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen
+              >iFrames are not supported on this page.</iframe
+            >
+          </div>
+
+          <div class="about-text-step">
+            <p>
+              The <b>second step</b> of the identification process consisted of identifying, of the parcels selected in the last step, all parcels with a share of impermeable surface cover over 15%. This was accomplished using the following operations.
+            </p>
+            <ol>
+              <li>First, I imported the "Impervious Surfaces 2017" shapefile from the Fairfax County Open Geospatial Data portal and clipped it to the parcels selected in step 2. </li>
+              <li>I then used the Dissolve tool to aggregate the impermeable surfaces shapefile into one multipart feature.</li>
+              <li>Next, I used the Tabulate Intersection tool to calculate the area of impermeable surface overlapping with each parcel.</li>
+              <li>I then joined the calculated impermeable surface layer to the original parcel layer in order to calculate the share of impermeable surface  contained within each parcel.</li> 
+              <li>Afterwards, I selected the parcels with a greater than 15% share of impermeable surface area.</li>
+            </ol>
+            <p>All parcels identified in this step are mapped below.</p>
+            <iframe
+              src="https://bmc15.maps.arcgis.com/apps/instant/basic/index.html?appid=1fc52c5e2cda4b91a15ea789ac86b67a"
+              width="400"
+              height="600"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen
+              >iFrames are not supported on this page.</iframe
+            >
+          </div>
+
+          <div class="about-text-step">
+            <p>
+              The <b>third step</b> of the identification process consisted of identifying, of the parcels selected in the last step, all parcels with utility shutoffs and/or null utility statuses in some combination. This was accomplished by selecting all parcels with at least one utility available but not connected, and the others either null or available but not connected in all possible combinations. Only four combinations existed in the selection of parcels created from the last two steps:
+              <ul>
+                <li id="sublist">all utilities available;</li>
+                <li id="sublist">water available, with null values in sewer and gas connection;</li>
+                <li id="sublist">sewer available, with null values in water and gas connection;</li>
+                <li id="sublist">and water and sewer available, with a null value in gas connection.</li>
+              </ul>
+            <p>All parcels identified in this step are mapped below. Parcels are labeled by which utilities were found to be available, with no data available for the parcel's other utility values--for example, the parcel layer labeled "Water available" contains all parcels for which water was listed as available, but gas and sewer listed as null.</p>
+            <iframe
+              src="https://bmc15.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=ce60115950984810ab742a34753dbfc8"
+              width="400"
+              height="600"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen
+              >iFrames are not supported on this page.</iframe
+            >
+          </div>
+
+          <div class="about-text-step">
+            <p>
+              The <b>fourth step</b> of the identification process consisted of identifying, of the parcels selected in the last step, the closest 10% of parcels in each layer to the highest number of areas of the county that could benefit the most from additional investment (or, in the case of layers with less than 10 records, the closest parcels). This was accomplished using the following operations.
+            </p>
+            <ol>
+              <li>First, I imported shapefiles for Fairfax block groups.</li>
+              <li>Next, I joined the following data to its corresponding block group:</li>
+                <ul>
+                  <li id="sublist">Median household income</li>
+                  <li id="sublist">Share of population on SNAP/WIC</li>
+                  <li id="sublist">Share of population on means-tested insurance/Medicaid</li>
+                  <li id="sublist">Share of HHs below poverty line in last 12 months</li>
+                  <li id="sublist">Share of population with high school education or equivalent, or less</li>
+                </ul>            
+              <li>I then created a suitability index for the block groups, weighted so that block groups with lower median household incomes and higher population shares in the other indicators had higher values.</li>
+              <li>The suitability index was then turned into a set of polygon features retaining their respective index values.</li>
+              <li>A separate Fairfax block group layer was converted to points.</li>
+              <li>I then joined the data of the polygon features containing index values to the block group points.</li>
+              <li>Each potential greyfield parcel layer created in step 3 was converted to points, still separated by utility connection.</li>
+              <li>I created a network analysis layer using data from the ArcGIS Online Cloud dataset included as premium content in ArcGIS Pro as my network dataset source, setting the potential greyfield parcel points as facilities and block group points, weighted by their index values, as demand points.</li>
+              <li>Using the location-allocation problem set to maximize attendance within a 20-minute drive (the maximum time most people will drive to make everyday purchases<a href="footenote2" id="ref2" title="Jump to footnote">[2]</a>) of block groups, I identified the top 10% of potential greyfield parcels most accessible to areas that could stand to benefit the most from a redevelopment of the potentially underutilized properties.</li>
+            </ol>
+            <p>All parcels identified in this step are mapped below. Parcels are labeled by which utilities were found to be available, with no data available for the parcel's other utility values--for example, the parcel layer labeled "Water available" contains parcels for which water was listed as available, but gas and sewer listed as null.</p>
+            <iframe
+              src="https://bmc15.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=d4a1e87299764f648484377056015bd8"
+              width="400"
+              height="600"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen
+              >iFrames are not supported on this page.</iframe
+            >
+          </div>
+          <div class="about-text">
+            <p>It's important to keep in mind that this process was far from perfect! Spot-checking the final parcels chosen in step 4 using satellite imagery revealed a <b>6% error rate</b> in my methodology, with a small parcel of forest land and a basketball court being mistakenly selected as top candidates for redevelopment. Given the opportunity to retry the analysis, I would avoid errors like these by sorting parcels by additional use attributes apart from exclusively residential versus non-residential zoning and using more recent impermeable surface data.
+            </ul>
+            <p id="footnote1">
+              <a href="#ref1">[1]</a> James Wickham, “Percent of Stream and Shoreline with 15% or More Impervious Cover within 30 Meters” (U.S. Environmental Protection Agency, Jan 18), accessed May 3, 2024, https://enviroatlas.epa.gov/enviroatlas/DataFactSheets/pdf/ESN/Percstreamw15percentimperviousin30meters.pdf.
+            </p>
+            <p id="footnote2">
+              <a href="#ref2">[2]</a> “The Impact of Retail Proximity on Consumer Purchases” (Access Development, 2017 2016), accessed May 3, 2024, https://cdn2.hubspot.net/hubfs/263750/Access_Consumer_Spend_Study_2016.pdf.
+            </p>
+          </div>
+        </div>
+      </div>
+      <footer id="footer"></footer>
+    </div>
+  </body>
+  <footer>
+    <p>Katya Little (2024)</p>
+  </footer>
+</html>
